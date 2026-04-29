@@ -1,0 +1,18 @@
+[Unit]
+Description=Anonim Telegram Relay Bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+Group=YOUR_USER
+WorkingDirectory=/path/to/anonim-bot
+ExecStart=/usr/bin/env bash /path/to/anonim-bot/scripts/run_bot_service.sh
+Restart=always
+RestartSec=5
+TimeoutStartSec=0
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
